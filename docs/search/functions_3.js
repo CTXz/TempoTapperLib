@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['period_5fus_53',['period_us',['../classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885',1,'tempo_tapper_cpp']]]
+  ['is_5finit_54',['is_init',['../classtempo__tapper__cpp.html#a1da2e17fc2f674b2bd66cac112533242',1,'tempo_tapper_cpp']]]
 ];

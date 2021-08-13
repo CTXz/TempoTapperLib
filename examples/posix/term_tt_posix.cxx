@@ -57,6 +57,13 @@ int main()
 {
         tempo_tapper *tt = tt_new(); // Create new tempo tapper instance
 
+        // Check if malloc failed
+        if (tt == NULL) {
+                free(tt);
+                printf("term_tt: Failed to create a new tempo tapper instance!\n");
+                return EXIT_FAILURE;
+        }
+
         // Initialize ncurses
         initscr();
         timeout(-1);

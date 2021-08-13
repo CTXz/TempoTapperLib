@@ -28,6 +28,7 @@
  */
 
 #include <stdlib.h>
+
 #include <tempo_tapper_cpp.h>
 
 tempo_tapper_cpp::tempo_tapper_cpp()
@@ -38,6 +39,11 @@ tempo_tapper_cpp::tempo_tapper_cpp()
 tempo_tapper_cpp::~tempo_tapper_cpp()
 {
         free(_tt);
+}
+
+bool tempo_tapper_cpp::is_init()
+{
+        return _tt != NULL;
 }
 
 unsigned long tempo_tapper_cpp::period_us()

@@ -125,6 +125,13 @@ void setup()
         Serial.begin(9600);
 
         tt = tt_new();      // Initialize tempo tapper
+
+        // Check if malloc failed
+        if (tt == NULL) {
+                // HANDLE ERORR HERE...
+                exit(EXIT_FAILURE);
+        }
+
         led = new_apl(LED); // Initialize struct to asynchronously control internal LED
 
         tap_btn_prev = digitalRead(TAP_BUTTON);

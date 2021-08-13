@@ -50,6 +50,8 @@ public:
         tempo_tapper_cpp();        ///< Wraps around tt_new()
         ~tempo_tapper_cpp();
 
+        bool is_init();            ///< Returns if class has been (successfully) initialized
+
         unsigned long period_us(); ///< Wraps around tt_period_us()
         void tap();                ///< Wraps around tt_tap()
         void reset();              ///< Wraps around tt_reset()

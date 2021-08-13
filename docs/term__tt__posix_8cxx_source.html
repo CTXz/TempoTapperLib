@@ -100,42 +100,49 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="structtempo__tapper.html">tempo_tapper</a> *tt = <a class="code" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a>(); <span class="comment">// Create new tempo tapper instance</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// Initialize ncurses</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        initscr();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        timeout(-1);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        curs_set(0);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">char</span> input; <span class="comment">// Keyboard input</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// Check if malloc failed</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> (tt == NULL) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                free(tt);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                printf(<span class="stringliteral">&quot;term_tt: Failed to create a new tempo tapper instance!\n&quot;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">do</span> {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                clear();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                printw(<span class="stringliteral">&quot;Use the enter key to tap a tempo. Press q to quit.\n&quot;</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                refresh();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// Initialize ncurses</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        initscr();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        timeout(-1);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        curs_set(0);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">while</span> (1) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        input = getchar();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        clear();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        <span class="keywordflow">if</span> (input == <span class="charliteral">&#39;q&#39;</span> || input == <span class="charliteral">&#39;r&#39;</span>)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input == <span class="charliteral">&#39;\r&#39;</span> || input == <span class="charliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                <a class="code" href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a>(tt); <span class="comment">// Newline received, tap!</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                printw(<span class="stringliteral">&quot;Invalid input!\n&quot;</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="comment">// Get tempo, using tt_bpm(), and tempo period using tt_preiod_us(), and print it out!</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        printw(<span class="stringliteral">&quot;Tempo: %.2f BPM, Period: %.2fms\n&quot;</span>, <a class="code" href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a>(tt), <span class="keywordtype">float</span>(<a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(tt))/1000);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        printw(<span class="stringliteral">&quot;Press r to reset, press q to quit.\n&quot;</span>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        refresh();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <a class="code" href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a>(tt); <span class="comment">// Reset tempo tapper</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        } <span class="keywordflow">while</span>(input != <span class="charliteral">&#39;q&#39;</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        endwin();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        free(tt);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">char</span> input; <span class="comment">// Keyboard input</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                clear();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                printw(<span class="stringliteral">&quot;Use the enter key to tap a tempo. Press q to quit.\n&quot;</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                refresh();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">while</span> (1) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        input = getchar();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        clear();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">if</span> (input == <span class="charliteral">&#39;q&#39;</span> || input == <span class="charliteral">&#39;r&#39;</span>)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input == <span class="charliteral">&#39;\r&#39;</span> || input == <span class="charliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                <a class="code" href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a>(tt); <span class="comment">// Newline received, tap!</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                                printw(<span class="stringliteral">&quot;Invalid input!\n&quot;</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        <span class="comment">// Get tempo, using tt_bpm(), and tempo period using tt_preiod_us(), and print it out!</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        printw(<span class="stringliteral">&quot;Tempo: %.2f BPM, Period: %.2fms\n&quot;</span>, <a class="code" href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a>(tt), <span class="keywordtype">float</span>(<a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(tt))/1000);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        printw(<span class="stringliteral">&quot;Press r to reset, press q to quit.\n&quot;</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        refresh();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <a class="code" href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a>(tt); <span class="comment">// Reset tempo tapper</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        } <span class="keywordflow">while</span>(input != <span class="charliteral">&#39;q&#39;</span>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        endwin();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        free(tt);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="atempo__tapper__common_8cxx_html_aed1d44fa6cc701a71953643d3585e298"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a></div><div class="ttdeci">float tt_bpm(tempo_tapper *tapper)</div><div class="ttdoc">Returns the tempo in BPM.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00072">tempo_tapper_common.cxx:72</a></div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_a08a70fd14b08b0b2c49d5975777b0178"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a></div><div class="ttdeci">void tt_tap(tempo_tapper *tapper)</div><div class="ttdoc">&quot;Taps&quot; the tempo tapper</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00046">tempo_tapper_common.cxx:46</a></div></div>

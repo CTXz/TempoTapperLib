@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['reset_13',['reset',['../classtempo__tapper__cpp.html#abb4d9f62e6a3beb0a136bb8c7f589733',1,'tempo_tapper_cpp']]],
-  ['reset_5fbutton_14',['RESET_BUTTON',['../arduino__tt_8cxx.html#ae80f4e50d6756064b8880735a5644881',1,'arduino_tt.cxx']]],
-  ['reset_5ftime_15',['reset_time',['../tempo__tapper_8h.html#a9f1a8f086496c86c0c5593eb8267283b',1,'tempo_tapper.h']]]
+  ['period_5fus_11',['period_us',['../classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885',1,'tempo_tapper_cpp']]],
+  ['prd_5fsum_12',['prd_sum',['../structtempo__tapper.html#a1a37a45ce428be64a2e07ef7929e01be',1,'tempo_tapper']]],
+  ['pressed_13',['PRESSED',['../arduino__tt_8cxx.html#a654adff3c664f27f0b29c24af818dd26',1,'arduino_tt.cxx']]]
 ];

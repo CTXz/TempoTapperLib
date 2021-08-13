@@ -53,7 +53,12 @@
 
 int main()
 {
-        tempo_tapper_cpp tt;  // Create new tempo tapper class object
+        tempo_tapper_cpp tt; // Create new tempo tapper class object
+        
+        if (!tt.is_init()) {
+                printf("term_tt: Failed to create a new tempo tapper object!\n");
+                return EXIT_FAILURE; // Exit 
+        }
 
         // Initialize ncurses
         initscr();

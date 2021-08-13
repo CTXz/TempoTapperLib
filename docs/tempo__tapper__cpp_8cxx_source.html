@@ -90,48 +90,55 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="tempo__tapper__cpp_8h.html">tempo_tapper_cpp.h</a>&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#a9c64b02521143a1fd7884c13dc970877">   33</a></span>&#160;<a class="code" href="classtempo__tapper__cpp.html#a9c64b02521143a1fd7884c13dc970877">tempo_tapper_cpp::tempo_tapper_cpp</a>()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        _tt = <a class="code" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;tempo_tapper_cpp::~tempo_tapper_cpp()</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        free(_tt);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885">   43</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885">tempo_tapper_cpp::period_us</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(_tt);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#a789cb3cc0d7312d289227986ce3bc855">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtempo__tapper__cpp.html#a789cb3cc0d7312d289227986ce3bc855">tempo_tapper_cpp::tap</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a>(_tt);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#abb4d9f62e6a3beb0a136bb8c7f589733">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtempo__tapper__cpp.html#abb4d9f62e6a3beb0a136bb8c7f589733">tempo_tapper_cpp::reset</a>()</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a>(_tt);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#abb3662af7eba339e360eef1134c710b3">   58</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="classtempo__tapper__cpp.html#abb3662af7eba339e360eef1134c710b3">tempo_tapper_cpp::bpm</a>()</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a>(_tt);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="tempo__tapper__cpp_8h.html">tempo_tapper_cpp.h</a>&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#a9c64b02521143a1fd7884c13dc970877">   34</a></span>&#160;<a class="code" href="classtempo__tapper__cpp.html#a9c64b02521143a1fd7884c13dc970877">tempo_tapper_cpp::tempo_tapper_cpp</a>()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        _tt = <a class="code" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;tempo_tapper_cpp::~tempo_tapper_cpp()</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        free(_tt);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#a1da2e17fc2f674b2bd66cac112533242">   44</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classtempo__tapper__cpp.html#a1da2e17fc2f674b2bd66cac112533242">tempo_tapper_cpp::is_init</a>()</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> _tt != NULL;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885">   49</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885">tempo_tapper_cpp::period_us</a>()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(_tt);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#a789cb3cc0d7312d289227986ce3bc855">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtempo__tapper__cpp.html#a789cb3cc0d7312d289227986ce3bc855">tempo_tapper_cpp::tap</a>()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a>(_tt);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#abb4d9f62e6a3beb0a136bb8c7f589733">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtempo__tapper__cpp.html#abb4d9f62e6a3beb0a136bb8c7f589733">tempo_tapper_cpp::reset</a>()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a>(_tt);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classtempo__tapper__cpp.html#abb3662af7eba339e360eef1134c710b3">   64</a></span>&#160;<span class="keywordtype">float</span> <a class="code" href="classtempo__tapper__cpp.html#abb3662af7eba339e360eef1134c710b3">tempo_tapper_cpp::bpm</a>()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a>(_tt);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="atempo__tapper__cpp_8h_html"><div class="ttname"><a href="tempo__tapper__cpp_8h.html">tempo_tapper_cpp.h</a></div><div class="ttdoc">C++ wrapper for the tempo tapper library.</div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_aed1d44fa6cc701a71953643d3585e298"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a></div><div class="ttdeci">float tt_bpm(tempo_tapper *tapper)</div><div class="ttdoc">Returns the tempo in BPM.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00072">tempo_tapper_common.cxx:72</a></div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_a08a70fd14b08b0b2c49d5975777b0178"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a></div><div class="ttdeci">void tt_tap(tempo_tapper *tapper)</div><div class="ttdoc">&quot;Taps&quot; the tempo tapper</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00046">tempo_tapper_common.cxx:46</a></div></div>
-<div class="ttc" id="aclasstempo__tapper__cpp_html_abb3662af7eba339e360eef1134c710b3"><div class="ttname"><a href="classtempo__tapper__cpp.html#abb3662af7eba339e360eef1134c710b3">tempo_tapper_cpp::bpm</a></div><div class="ttdeci">float bpm()</div><div class="ttdoc">Wraps around tt_bpm()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00058">tempo_tapper_cpp.cxx:58</a></div></div>
-<div class="ttc" id="aclasstempo__tapper__cpp_html_abb4d9f62e6a3beb0a136bb8c7f589733"><div class="ttname"><a href="classtempo__tapper__cpp.html#abb4d9f62e6a3beb0a136bb8c7f589733">tempo_tapper_cpp::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Wraps around tt_reset()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00053">tempo_tapper_cpp.cxx:53</a></div></div>
-<div class="ttc" id="aclasstempo__tapper__cpp_html_a789cb3cc0d7312d289227986ce3bc855"><div class="ttname"><a href="classtempo__tapper__cpp.html#a789cb3cc0d7312d289227986ce3bc855">tempo_tapper_cpp::tap</a></div><div class="ttdeci">void tap()</div><div class="ttdoc">Wraps around tt_tap()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00048">tempo_tapper_cpp.cxx:48</a></div></div>
+<div class="ttc" id="aclasstempo__tapper__cpp_html_abb3662af7eba339e360eef1134c710b3"><div class="ttname"><a href="classtempo__tapper__cpp.html#abb3662af7eba339e360eef1134c710b3">tempo_tapper_cpp::bpm</a></div><div class="ttdeci">float bpm()</div><div class="ttdoc">Wraps around tt_bpm()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00064">tempo_tapper_cpp.cxx:64</a></div></div>
+<div class="ttc" id="aclasstempo__tapper__cpp_html_abb4d9f62e6a3beb0a136bb8c7f589733"><div class="ttname"><a href="classtempo__tapper__cpp.html#abb4d9f62e6a3beb0a136bb8c7f589733">tempo_tapper_cpp::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Wraps around tt_reset()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00059">tempo_tapper_cpp.cxx:59</a></div></div>
+<div class="ttc" id="aclasstempo__tapper__cpp_html_a1da2e17fc2f674b2bd66cac112533242"><div class="ttname"><a href="classtempo__tapper__cpp.html#a1da2e17fc2f674b2bd66cac112533242">tempo_tapper_cpp::is_init</a></div><div class="ttdeci">bool is_init()</div><div class="ttdoc">Returns if class has been (successfully) initialized.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00044">tempo_tapper_cpp.cxx:44</a></div></div>
+<div class="ttc" id="aclasstempo__tapper__cpp_html_a789cb3cc0d7312d289227986ce3bc855"><div class="ttname"><a href="classtempo__tapper__cpp.html#a789cb3cc0d7312d289227986ce3bc855">tempo_tapper_cpp::tap</a></div><div class="ttdeci">void tap()</div><div class="ttdoc">Wraps around tt_tap()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00054">tempo_tapper_cpp.cxx:54</a></div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_af7160cb12c6cc18e6d4322235ba25fc4"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a></div><div class="ttdeci">void tt_reset(tempo_tapper *tapper)</div><div class="ttdoc">Resets the tempo tapper.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00083">tempo_tapper_common.cxx:83</a></div></div>
-<div class="ttc" id="aclasstempo__tapper__cpp_html_a9c64b02521143a1fd7884c13dc970877"><div class="ttname"><a href="classtempo__tapper__cpp.html#a9c64b02521143a1fd7884c13dc970877">tempo_tapper_cpp::tempo_tapper_cpp</a></div><div class="ttdeci">tempo_tapper_cpp()</div><div class="ttdoc">Wraps around tt_new()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00033">tempo_tapper_cpp.cxx:33</a></div></div>
+<div class="ttc" id="aclasstempo__tapper__cpp_html_a9c64b02521143a1fd7884c13dc970877"><div class="ttname"><a href="classtempo__tapper__cpp.html#a9c64b02521143a1fd7884c13dc970877">tempo_tapper_cpp::tempo_tapper_cpp</a></div><div class="ttdeci">tempo_tapper_cpp()</div><div class="ttdoc">Wraps around tt_new()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00034">tempo_tapper_cpp.cxx:34</a></div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_a651d8d5e4cfd850c4174f8afa381526a"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a></div><div class="ttdeci">tempo_tapper * tt_new()</div><div class="ttdoc">Creates a new tempo tapper instance.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00061">tempo_tapper_common.cxx:61</a></div></div>
-<div class="ttc" id="aclasstempo__tapper__cpp_html_a4e2bc3e4fc3377643c8ce1ec0d03d885"><div class="ttname"><a href="classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885">tempo_tapper_cpp::period_us</a></div><div class="ttdeci">unsigned long period_us()</div><div class="ttdoc">Wraps around tt_period_us()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00043">tempo_tapper_cpp.cxx:43</a></div></div>
+<div class="ttc" id="aclasstempo__tapper__cpp_html_a4e2bc3e4fc3377643c8ce1ec0d03d885"><div class="ttname"><a href="classtempo__tapper__cpp.html#a4e2bc3e4fc3377643c8ce1ec0d03d885">tempo_tapper_cpp::period_us</a></div><div class="ttdeci">unsigned long period_us()</div><div class="ttdoc">Wraps around tt_period_us()</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__cpp_8cxx_source.html#l00049">tempo_tapper_cpp.cxx:49</a></div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_a64b7b4c29845f07ba8678b35968f66cc"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a></div><div class="ttdeci">unsigned long tt_period_us(tempo_tapper *tapper)</div><div class="ttdoc">Returns the period of a tempo in microseconds.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00037">tempo_tapper_common.cxx:37</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

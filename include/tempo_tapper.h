@@ -150,7 +150,7 @@ unsigned long time_to_us(tt_time_t *time);
  * 
  * The following function creates and initializes a tempo tapper struct instance.
  * 
- * @return A initialized tempo_tapper struct instance
+ * @return A initialized tempo_tapper struct instance or NULL on failure
  * 
  */
 tempo_tapper* tt_new();

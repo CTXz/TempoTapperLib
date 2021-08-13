@@ -171,49 +171,56 @@ $(function() {
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        Serial.begin(9600);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        tt = <a class="code" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a>();      <span class="comment">// Initialize tempo tapper</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        led = new_apl(<a class="code" href="arduino__tt_8cxx.html#aeb7a7ba1ab7e0406f1b5ab36d579f585">LED</a>); <span class="comment">// Initialize struct to asynchronously control internal LED</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        tap_btn_prev = digitalRead(<a class="code" href="arduino__tt_8cxx.html#a31ee40b5ffa3f7283b6cb1c16ca4cf4e">TAP_BUTTON</a>);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        rst_btn_prev = digitalRead(<a class="code" href="arduino__tt_8cxx.html#ae80f4e50d6756064b8880735a5644881">RESET_BUTTON</a>);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">void</span> loop()</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;{</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordtype">bool</span> tap_btn = digitalRead(<a class="code" href="arduino__tt_8cxx.html#a31ee40b5ffa3f7283b6cb1c16ca4cf4e">TAP_BUTTON</a>);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">bool</span> rst_btn = digitalRead(<a class="code" href="arduino__tt_8cxx.html#ae80f4e50d6756064b8880735a5644881">RESET_BUTTON</a>);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="comment">// Check for tap</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordtype">bool</span> pressed = <a class="code" href="arduino__tt_8cxx.html#ad667bd6c7e35dd7be17da85234b5858a">CHECK_BTN_PRESSED</a>(tap_btn_prev, tap_btn);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">if</span> (pressed) {</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <a class="code" href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a>(tt);                                 <span class="comment">// Register tap</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                tstamp = micros();                          <span class="comment">// Tempo period starts here</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                start_led_pulse(led, <a class="code" href="arduino__tt_8cxx.html#a9c24d94609dc425881929e31ba557192">LED_PULSE_LEN_MS</a>);     <span class="comment">// Start LED pulse</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                Serial.println(<span class="stringliteral">&quot;Tempo: &quot;</span> + String(<a class="code" href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a>(tt)) + <span class="stringliteral">&quot; BPM&quot;</span>);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                DEBOUNCE();                                 <span class="comment">// Debounce the button</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        }</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="comment">// Check for reset</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        pressed = <a class="code" href="arduino__tt_8cxx.html#ad667bd6c7e35dd7be17da85234b5858a">CHECK_BTN_PRESSED</a>(rst_btn_prev, rst_btn);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">if</span> (pressed) {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <a class="code" href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a>(tt);          <span class="comment">// Reset tempo tapper</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                cancel_led_pulse(led); <span class="comment">// Abort any ongoing LED pulse</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                Serial.println(<span class="stringliteral">&quot;Reset!&quot;</span>);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                DEBOUNCE();            <span class="comment">// Debounce the button</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        }</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="comment">// Pulse LED at the current tempo</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> period = <a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(tt);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">if</span> (period &gt; 0 &amp;&amp; micros() - tstamp &gt;= period) {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                tstamp = micros();</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                start_led_pulse(led, <a class="code" href="arduino__tt_8cxx.html#a9c24d94609dc425881929e31ba557192">LED_PULSE_LEN_MS</a>); <span class="comment">// Start LED pulse</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="comment">// Check if malloc failed</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">if</span> (tt == NULL) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="comment">// HANDLE ERORR HERE...</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        led = new_apl(<a class="code" href="arduino__tt_8cxx.html#aeb7a7ba1ab7e0406f1b5ab36d579f585">LED</a>); <span class="comment">// Initialize struct to asynchronously control internal LED</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        tap_btn_prev = digitalRead(<a class="code" href="arduino__tt_8cxx.html#a31ee40b5ffa3f7283b6cb1c16ca4cf4e">TAP_BUTTON</a>);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        rst_btn_prev = digitalRead(<a class="code" href="arduino__tt_8cxx.html#ae80f4e50d6756064b8880735a5644881">RESET_BUTTON</a>);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordtype">void</span> loop()</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordtype">bool</span> tap_btn = digitalRead(<a class="code" href="arduino__tt_8cxx.html#a31ee40b5ffa3f7283b6cb1c16ca4cf4e">TAP_BUTTON</a>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">bool</span> rst_btn = digitalRead(<a class="code" href="arduino__tt_8cxx.html#ae80f4e50d6756064b8880735a5644881">RESET_BUTTON</a>);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="comment">// Check for tap</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">bool</span> pressed = <a class="code" href="arduino__tt_8cxx.html#ad667bd6c7e35dd7be17da85234b5858a">CHECK_BTN_PRESSED</a>(tap_btn_prev, tap_btn);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">if</span> (pressed) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <a class="code" href="tempo__tapper__common_8cxx.html#a08a70fd14b08b0b2c49d5975777b0178">tt_tap</a>(tt);                                 <span class="comment">// Register tap</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                tstamp = micros();                          <span class="comment">// Tempo period starts here</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                start_led_pulse(led, <a class="code" href="arduino__tt_8cxx.html#a9c24d94609dc425881929e31ba557192">LED_PULSE_LEN_MS</a>);     <span class="comment">// Start LED pulse</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                Serial.println(<span class="stringliteral">&quot;Tempo: &quot;</span> + String(<a class="code" href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a>(tt)) + <span class="stringliteral">&quot; BPM&quot;</span>);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                DEBOUNCE();                                 <span class="comment">// Debounce the button</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="comment">// Check for reset</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        pressed = <a class="code" href="arduino__tt_8cxx.html#ad667bd6c7e35dd7be17da85234b5858a">CHECK_BTN_PRESSED</a>(rst_btn_prev, rst_btn);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">if</span> (pressed) {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <a class="code" href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a>(tt);          <span class="comment">// Reset tempo tapper</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                cancel_led_pulse(led); <span class="comment">// Abort any ongoing LED pulse</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                Serial.println(<span class="stringliteral">&quot;Reset!&quot;</span>);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                DEBOUNCE();            <span class="comment">// Debounce the button</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        }</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        handle_led(led); <span class="comment">// Handle LED pulse</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        tap_btn_prev = tap_btn;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        rst_btn_prev = rst_btn;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="comment">// Pulse LED at the current tempo</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> period = <a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(tt);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">if</span> (period &gt; 0 &amp;&amp; micros() - tstamp &gt;= period) {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                tstamp = micros();</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                start_led_pulse(led, <a class="code" href="arduino__tt_8cxx.html#a9c24d94609dc425881929e31ba557192">LED_PULSE_LEN_MS</a>); <span class="comment">// Start LED pulse</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        handle_led(led); <span class="comment">// Handle LED pulse</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        tap_btn_prev = tap_btn;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        rst_btn_prev = rst_btn;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="atempo__tapper__common_8cxx_html_aed1d44fa6cc701a71953643d3585e298"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a></div><div class="ttdeci">float tt_bpm(tempo_tapper *tapper)</div><div class="ttdoc">Returns the tempo in BPM.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00072">tempo_tapper_common.cxx:72</a></div></div>
 <div class="ttc" id="aarduino__tt_8cxx_html_a9c24d94609dc425881929e31ba557192"><div class="ttname"><a href="arduino__tt_8cxx.html#a9c24d94609dc425881929e31ba557192">LED_PULSE_LEN_MS</a></div><div class="ttdeci">#define LED_PULSE_LEN_MS</div><div class="ttdoc">LED pulse duration in ms.</div><div class="ttdef"><b>Definition:</b> <a href="arduino__tt_8cxx_source.html#l00053">arduino_tt.cxx:53</a></div></div>

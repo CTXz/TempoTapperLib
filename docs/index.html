@@ -131,6 +131,13 @@ Example - Terminal based Tempo Tapper on POSIX platforms (ex. Linux)</h1>
 <div class="line">{</div>
 <div class="line">        <a class="code" href="structtempo__tapper.html">tempo_tapper</a> *tt = <a class="code" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a>(); <span class="comment">// Create new tempo tapper instance</span></div>
 <div class="line"> </div>
+<div class="line">        <span class="comment">// Check if malloc failed</span></div>
+<div class="line">        <span class="keywordflow">if</span> (tt == NULL) {</div>
+<div class="line">                free(tt);</div>
+<div class="line">                printf(<span class="stringliteral">&quot;term_tt: Failed to create a new tempo tapper instance!\n&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
 <div class="line">        <span class="comment">// Initialize ncurses</span></div>
 <div class="line">        initscr();</div>
 <div class="line">        timeout(-1);</div>
@@ -184,13 +191,20 @@ Example - Terminal based Tempo Tapper on POSIX platforms (ex. Linux)</h1>
 <p>Following the header inclusions we get to the main function of our program:</p>
 <div class="fragment"><div class="line"><a class="code" href="structtempo__tapper.html">tempo_tapper</a> *tt = <a class="code" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a>(); <span class="comment">// Create new tempo tapper instance</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Initialize ncurses</span></div>
+<div class="line"><span class="comment">// Check if malloc failed</span></div>
+<div class="line"><span class="keywordflow">if</span> (tt == NULL) {</div>
+<div class="line">        free(tt);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;term_tt: Failed to create a new tempo tapper instance!\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Here we first declare and allocate a tempo tapper struct instance using the <a class="el" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a" title="Creates a new tempo tapper instance.">tt_new()</a> function, and test whether it has been successfully created. Should a failure arise during the memory allocation, we free the struct pointer, print an error message and terminate the programm with an <code>EXIT_FAILURE</code> code.</p>
+<p>Next up, we proceed to initialize ncurses: </p><div class="fragment"><div class="line"><span class="comment">// Initialize ncurses</span></div>
 <div class="line">initscr();</div>
 <div class="line">timeout(-1);</div>
 <div class="line">curs_set(0);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">char</span> input; <span class="comment">// Keyboard input</span></div>
-</div><!-- fragment --><p>Here we declare and allocate a tempo tapper struct instance using the <a class="el" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a" title="Creates a new tempo tapper instance.">tt_new()</a> function. We then proceed to initialize ncurses, which will allow us to directly read keyboard input without needing to provide a terminating newline, easily clear the terminal window and lastly, allow us to hide the cursor. Then we declare a variable that will store terminals keyboard input.</p>
+</div><!-- fragment --><p>This will allow us to directly read keyboard input without needing to provide a terminating newline, easily clear the terminal window and allow us to hide the cursor. At the end we declare a variable that will store our terminals keyboard input.</p>
 <p>Following the code further down, we find two nested loops:</p>
 <div class="fragment"><div class="line"><span class="keywordflow">do</span> {</div>
 <div class="line">        clear();</div>

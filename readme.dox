@@ -96,6 +96,13 @@ int main()
 {
         tempo_tapper *tt = tt_new(); // Create new tempo tapper instance
 
+        // Check if malloc failed
+        if (tt == NULL) {
+                free(tt);
+                printf("term_tt: Failed to create a new tempo tapper instance!\n");
+                return EXIT_FAILURE;
+        }
+
         // Initialize ncurses
         initscr();
         timeout(-1);
@@ -171,18 +178,30 @@ int main()
 ```
         tempo_tapper *tt = tt_new(); // Create new tempo tapper instance
 
-        // Initialize ncurses
-        initscr();
-        timeout(-1);
-        curs_set(0);
-
-        char input; // Keyboard input
+        // Check if malloc failed
+        if (tt == NULL) {
+                free(tt);
+                printf("term_tt: Failed to create a new tempo tapper instance!\n");
+                return EXIT_FAILURE;
+        }
 ```
  *
- * Here we declare and allocate a tempo tapper struct instance using the tt_new() function. We then
- * proceed to initialize ncurses, which will allow us to directly read keyboard input without
- * needing to provide a terminating newline, easily clear the terminal window and lastly, allow us
- * to hide the cursor. Then we declare a variable that will store terminals keyboard input.
+ * Here we first declare and allocate a tempo tapper struct instance using the tt_new() function,
+ * and test whether it has been successfully created. Should a failure arise during the memory allocation, 
+ * we free the struct pointer, print an error message and terminate the programm with an `EXIT_FAILURE` code.
+ *
+ * Next up, we proceed to initialize ncurses:
+```
+// Initialize ncurses
+initscr();
+timeout(-1);
+curs_set(0);
+
+char input; // Keyboard input
+```
+ * This will allow us to directly read keyboard input without needing to provide a terminating newline, 
+ * easily clear the terminal window and allow us to hide the cursor. 
+ * At the end we declare a variable that will store our terminals keyboard input.
  * 
  * Following the code further down, we find two nested loops:
  * 
