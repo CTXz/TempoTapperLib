@@ -21,7 +21,7 @@
  * @author Patrick Pedersen
  * @date 2021-08-05
  * 
- * @brief Provides all necessary strucs and functions to implement a tempo tapper
+ * @brief Provides all necessary structs and functions to implement a tempo tapper
  * 
  * The following file Provides all necessary strucs and functions to implement a tempo tapper, i.e.
  * the tempo tapper struct and prototypes for all functions that interact with a tempo tapper struct

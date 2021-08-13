@@ -13,7 +13,7 @@ digraph "examples/posix/term_tt_posix.cxx"
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node5 [label="curses.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="tempo_tapper.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tempo__tapper_8h.html",tooltip="Provides all necessary strucs and functions to implement a tempo tapper."];
+  Node6 [label="tempo_tapper.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tempo__tapper_8h.html",tooltip="Provides all necessary structs and functions to implement a tempo tapper."];
   Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node7 [label="stdint.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }
