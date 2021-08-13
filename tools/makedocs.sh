@@ -44,35 +44,9 @@ PROJECT_ROOT="$DIR/.."
 cd "$PROJECT_ROOT"
 
 rm -rf "doxygen/"
-
-## Generate README from mainpage
-
-# Generate readme.md using doxybook2
-tmp=/tmp/Tempo_Tapper_Lib_doxybook
-mkdir "$tmp"
-doxygen
-doxybook2 --input doxygen/xml --templates "doxybook_templates/" --output "$tmp" >> /dev/null 2>&1
-mv "$tmp/indexpage.md" readme.md 
-rm -r "$tmp"
-
-# Remove top
-
-sed -i "s/Welcome to the Tempo Tapper library documentation\.//g" readme.md
-
-# Fix references
-sed -i "s|\(\[.*\](\)|\1$DOCS_URL|" readme.md
-
-offset=0
-# Fix lists lacking a linebreak at end
-grep -n -A1 '^\* .*$' readme.md | grep -v '\-\-\|:\* .*$' | while read -r line; do
-        line_num="$(echo $line | cut -f1 -d-)"
-        sed -i "$((line_num + offset))i \ " readme.md
-        ((offset++))
-done
-
 rm -rf docs/
+doxygen
 mv doxygen/html docs/ 
-
 rm -r doxygen
 
 echo "makedocs: Done"
