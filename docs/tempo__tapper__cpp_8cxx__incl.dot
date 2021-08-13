@@ -1,0 +1,15 @@
+digraph "src/tempo_tapper_cpp.cxx"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/tempo_tapper_cpp.cxx",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Defines methods for the C++ tempo tapper wrapper."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="stdlib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="tempo_tapper_cpp.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tempo__tapper__cpp_8h.html",tooltip="C++ wrapper for the tempo tapper library."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="tempo_tapper.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tempo__tapper_8h.html",tooltip="Provides all necessary strucs and functions to implement a tempo tapper."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="stdint.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+}
