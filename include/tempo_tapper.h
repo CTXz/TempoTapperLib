@@ -57,6 +57,8 @@ typedef unsigned long tt_time_t;
 
 #endif
 
+typedef float BPM_t; // Data type to store BPM values
+
 /**
  * @brief Tempo tapper struct
  * 
@@ -196,4 +198,4 @@ void tt_reset(tempo_tapper *tapper);
  *
  * @return Tempo in BPM 
  */
-float tt_bpm(tempo_tapper *tapper);
+BPM_t tt_bpm(tempo_tapper *tapper);

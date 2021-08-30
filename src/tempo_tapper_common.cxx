@@ -69,7 +69,7 @@ tempo_tapper* tt_new()
         return tapper;
 }
 
-float tt_bpm(tempo_tapper *tapper)
+BPM_t tt_bpm(tempo_tapper *tapper)
 {
         unsigned long us = tt_period_us(tapper);
         
@@ -77,7 +77,7 @@ float tt_bpm(tempo_tapper *tapper)
                 return 0;
 
         
-        return (60 * S_TO_US)/(float)tt_period_us(tapper);
+        return (60 * S_TO_US)/(BPM_t)tt_period_us(tapper);
 }
 
 void tt_reset(tempo_tapper *tapper)

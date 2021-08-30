@@ -98,9 +98,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a651d8d5e4cfd850c4174f8afa381526a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtempo__tapper.html">tempo_tapper</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">tt_new</a> ()</td></tr>
 <tr class="memdesc:a651d8d5e4cfd850c4174f8afa381526a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tempo tapper instance.  <a href="tempo__tapper__common_8cxx.html#a651d8d5e4cfd850c4174f8afa381526a">More...</a><br /></td></tr>
 <tr class="separator:a651d8d5e4cfd850c4174f8afa381526a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed1d44fa6cc701a71953643d3585e298"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">tt_bpm</a> (<a class="el" href="structtempo__tapper.html">tempo_tapper</a> *tapper)</td></tr>
-<tr class="memdesc:aed1d44fa6cc701a71953643d3585e298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the tempo in BPM.  <a href="tempo__tapper__common_8cxx.html#aed1d44fa6cc701a71953643d3585e298">More...</a><br /></td></tr>
-<tr class="separator:aed1d44fa6cc701a71953643d3585e298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e3549026a6efbb514b6b36dd109432"><td class="memItemLeft" align="right" valign="top">BPM_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tempo__tapper__common_8cxx.html#aa8e3549026a6efbb514b6b36dd109432">tt_bpm</a> (<a class="el" href="structtempo__tapper.html">tempo_tapper</a> *tapper)</td></tr>
+<tr class="memdesc:aa8e3549026a6efbb514b6b36dd109432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the tempo in BPM.  <a href="tempo__tapper__common_8cxx.html#aa8e3549026a6efbb514b6b36dd109432">More...</a><br /></td></tr>
+<tr class="separator:aa8e3549026a6efbb514b6b36dd109432"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7160cb12c6cc18e6d4322235ba25fc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a> (<a class="el" href="structtempo__tapper.html">tempo_tapper</a> *tapper)</td></tr>
 <tr class="memdesc:af7160cb12c6cc18e6d4322235ba25fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the tempo tapper.  <a href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">More...</a><br /></td></tr>
 <tr class="separator:af7160cb12c6cc18e6d4322235ba25fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,14 +114,14 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="tempo__tapper__common_8cxx_source.html">tempo_tapper_common.cxx</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="aed1d44fa6cc701a71953643d3585e298"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed1d44fa6cc701a71953643d3585e298">&#9670;&nbsp;</a></span>tt_bpm()</h2>
+<a id="aa8e3549026a6efbb514b6b36dd109432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8e3549026a6efbb514b6b36dd109432">&#9670;&nbsp;</a></span>tt_bpm()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float tt_bpm </td>
+          <td class="memname">BPM_t tt_bpm </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structtempo__tapper.html">tempo_tapper</a> *&#160;</td>
           <td class="paramname"><em>tapper</em></td><td>)</td>
@@ -142,7 +142,7 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> (60 * S_TO_US)/(float)<a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(tapper);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> (60 * S_TO_US)/(BPM_t)<a class="code" href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a>(tapper);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="tempo__tapper__common_8cxx_source.html#l00037">tt_period_us()</a>.</p>
@@ -216,7 +216,7 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> us/tapper-&gt;<a class="code" href="structtempo__tapper.html#a4641535ce890cadb2cb2b56da5cb08b8">taps</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="tempo__tapper_8h_source.html#l00087">tempo_tapper::prd_sum</a>, <a class="el" href="tempo__tapper_8h_source.html#l00089">tempo_tapper::taps</a>, and <a class="el" href="tempo__tapper_8h.html#a34adb0adab019689d84b201859beae43">time_to_us()</a>.</p>
+<p class="reference">References <a class="el" href="tempo__tapper_8h_source.html#l00089">tempo_tapper::prd_sum</a>, <a class="el" href="tempo__tapper_8h_source.html#l00091">tempo_tapper::taps</a>, and <a class="el" href="tempo__tapper_8h.html#a34adb0adab019689d84b201859beae43">time_to_us()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="tempo__tapper__cpp_8cxx_source.html#l00049">tempo_tapper_cpp::period_us()</a>, and <a class="el" href="tempo__tapper__common_8cxx_source.html#l00072">tt_bpm()</a>.</p>
 
@@ -247,7 +247,7 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="tempo__tapper_8h.html#a9f1a8f086496c86c0c5593eb8267283b">reset_time</a>(&amp;tapper-&gt;<a class="code" href="structtempo__tapper.html#a1a37a45ce428be64a2e07ef7929e01be">prd_sum</a>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="tempo__tapper_8h_source.html#l00087">tempo_tapper::prd_sum</a>, <a class="el" href="tempo__tapper_8h.html#a9f1a8f086496c86c0c5593eb8267283b">reset_time()</a>, and <a class="el" href="tempo__tapper_8h_source.html#l00089">tempo_tapper::taps</a>.</p>
+<p class="reference">References <a class="el" href="tempo__tapper_8h_source.html#l00089">tempo_tapper::prd_sum</a>, <a class="el" href="tempo__tapper_8h.html#a9f1a8f086496c86c0c5593eb8267283b">reset_time()</a>, and <a class="el" href="tempo__tapper_8h_source.html#l00091">tempo_tapper::taps</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="tempo__tapper__cpp_8cxx_source.html#l00059">tempo_tapper_cpp::reset()</a>, and <a class="el" href="tempo__tapper__common_8cxx_source.html#l00061">tt_new()</a>.</p>
 
@@ -287,7 +287,7 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        tapper-&gt;<a class="code" href="structtempo__tapper.html#ada52022389635f3bdfd065c9b19c2bfd">lst_t</a> = c_time;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="tempo__tapper_8h.html#a9e82676b897bbffc439046cc597d633a">add_time()</a>, <a class="el" href="tempo__tapper_8h.html#ab2548e0a4b4ebf06eed0cde2478a99f4">current_time()</a>, <a class="el" href="tempo__tapper_8h_source.html#l00088">tempo_tapper::lst_t</a>, <a class="el" href="tempo__tapper_8h_source.html#l00087">tempo_tapper::prd_sum</a>, <a class="el" href="tempo__tapper_8h.html#a8be4acb58f6a1bdbf36b49b6e9c6a427">sub_time()</a>, and <a class="el" href="tempo__tapper_8h_source.html#l00089">tempo_tapper::taps</a>.</p>
+<p class="reference">References <a class="el" href="tempo__tapper_8h.html#a9e82676b897bbffc439046cc597d633a">add_time()</a>, <a class="el" href="tempo__tapper_8h.html#ab2548e0a4b4ebf06eed0cde2478a99f4">current_time()</a>, <a class="el" href="tempo__tapper_8h_source.html#l00090">tempo_tapper::lst_t</a>, <a class="el" href="tempo__tapper_8h_source.html#l00089">tempo_tapper::prd_sum</a>, <a class="el" href="tempo__tapper_8h.html#a8be4acb58f6a1bdbf36b49b6e9c6a427">sub_time()</a>, and <a class="el" href="tempo__tapper_8h_source.html#l00091">tempo_tapper::taps</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="tempo__tapper__cpp_8cxx_source.html#l00054">tempo_tapper_cpp::tap()</a>.</p>
 
@@ -297,11 +297,11 @@ Functions</h2></td></tr>
 <div class="ttc" id="atempo__tapper_8h_html_a9f1a8f086496c86c0c5593eb8267283b"><div class="ttname"><a href="tempo__tapper_8h.html#a9f1a8f086496c86c0c5593eb8267283b">reset_time</a></div><div class="ttdeci">void reset_time(tt_time_t *time)</div><div class="ttdoc">Resets a time var to 0.</div></div>
 <div class="ttc" id="atempo__tapper_8h_html_a9e82676b897bbffc439046cc597d633a"><div class="ttname"><a href="tempo__tapper_8h.html#a9e82676b897bbffc439046cc597d633a">add_time</a></div><div class="ttdeci">void add_time(tt_time_t *a, tt_time_t *b, tt_time_t *res)</div><div class="ttdoc">Adds two time values.</div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_af7160cb12c6cc18e6d4322235ba25fc4"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#af7160cb12c6cc18e6d4322235ba25fc4">tt_reset</a></div><div class="ttdeci">void tt_reset(tempo_tapper *tapper)</div><div class="ttdoc">Resets the tempo tapper.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00083">tempo_tapper_common.cxx:83</a></div></div>
-<div class="ttc" id="astructtempo__tapper_html_a1a37a45ce428be64a2e07ef7929e01be"><div class="ttname"><a href="structtempo__tapper.html#a1a37a45ce428be64a2e07ef7929e01be">tempo_tapper::prd_sum</a></div><div class="ttdeci">tt_time_t prd_sum</div><div class="ttdoc">Holds the sum of all measured/&quot;tapped&quot; periods.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00087">tempo_tapper.h:87</a></div></div>
-<div class="ttc" id="astructtempo__tapper_html_ada52022389635f3bdfd065c9b19c2bfd"><div class="ttname"><a href="structtempo__tapper.html#ada52022389635f3bdfd065c9b19c2bfd">tempo_tapper::lst_t</a></div><div class="ttdeci">tt_time_t lst_t</div><div class="ttdoc">Hold the clock time of the last tap.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00088">tempo_tapper.h:88</a></div></div>
-<div class="ttc" id="astructtempo__tapper_html_a4641535ce890cadb2cb2b56da5cb08b8"><div class="ttname"><a href="structtempo__tapper.html#a4641535ce890cadb2cb2b56da5cb08b8">tempo_tapper::taps</a></div><div class="ttdeci">int taps</div><div class="ttdoc">Number of taps. The inital val is -1, meaning the 1st tap does not count.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00089">tempo_tapper.h:89</a></div></div>
+<div class="ttc" id="astructtempo__tapper_html_a1a37a45ce428be64a2e07ef7929e01be"><div class="ttname"><a href="structtempo__tapper.html#a1a37a45ce428be64a2e07ef7929e01be">tempo_tapper::prd_sum</a></div><div class="ttdeci">tt_time_t prd_sum</div><div class="ttdoc">Holds the sum of all measured/&quot;tapped&quot; periods.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00089">tempo_tapper.h:89</a></div></div>
+<div class="ttc" id="astructtempo__tapper_html_ada52022389635f3bdfd065c9b19c2bfd"><div class="ttname"><a href="structtempo__tapper.html#ada52022389635f3bdfd065c9b19c2bfd">tempo_tapper::lst_t</a></div><div class="ttdeci">tt_time_t lst_t</div><div class="ttdoc">Hold the clock time of the last tap.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00090">tempo_tapper.h:90</a></div></div>
+<div class="ttc" id="astructtempo__tapper_html_a4641535ce890cadb2cb2b56da5cb08b8"><div class="ttname"><a href="structtempo__tapper.html#a4641535ce890cadb2cb2b56da5cb08b8">tempo_tapper::taps</a></div><div class="ttdeci">int taps</div><div class="ttdoc">Number of taps. The inital val is -1, meaning the 1st tap does not count.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00091">tempo_tapper.h:91</a></div></div>
 <div class="ttc" id="atempo__tapper_8h_html_a8be4acb58f6a1bdbf36b49b6e9c6a427"><div class="ttname"><a href="tempo__tapper_8h.html#a8be4acb58f6a1bdbf36b49b6e9c6a427">sub_time</a></div><div class="ttdeci">void sub_time(tt_time_t *a, tt_time_t *b, tt_time_t *res)</div><div class="ttdoc">Subtracts two time values.</div></div>
-<div class="ttc" id="astructtempo__tapper_html"><div class="ttname"><a href="structtempo__tapper.html">tempo_tapper</a></div><div class="ttdoc">Tempo tapper struct.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00085">tempo_tapper.h:85</a></div></div>
+<div class="ttc" id="astructtempo__tapper_html"><div class="ttname"><a href="structtempo__tapper.html">tempo_tapper</a></div><div class="ttdoc">Tempo tapper struct.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper_8h_source.html#l00087">tempo_tapper.h:87</a></div></div>
 <div class="ttc" id="atempo__tapper_8h_html_a34adb0adab019689d84b201859beae43"><div class="ttname"><a href="tempo__tapper_8h.html#a34adb0adab019689d84b201859beae43">time_to_us</a></div><div class="ttdeci">unsigned long time_to_us(tt_time_t *time)</div><div class="ttdoc">Returns a time value in microseconds.</div></div>
 <div class="ttc" id="atempo__tapper__common_8cxx_html_a64b7b4c29845f07ba8678b35968f66cc"><div class="ttname"><a href="tempo__tapper__common_8cxx.html#a64b7b4c29845f07ba8678b35968f66cc">tt_period_us</a></div><div class="ttdeci">unsigned long tt_period_us(tempo_tapper *tapper)</div><div class="ttdoc">Returns the period of a tempo in microseconds.</div><div class="ttdef"><b>Definition:</b> <a href="tempo__tapper__common_8cxx_source.html#l00037">tempo_tapper_common.cxx:37</a></div></div>
 <div class="ttc" id="atempo__tapper_8h_html_ab2548e0a4b4ebf06eed0cde2478a99f4"><div class="ttname"><a href="tempo__tapper_8h.html#ab2548e0a4b4ebf06eed0cde2478a99f4">current_time</a></div><div class="ttdeci">void current_time(tt_time_t *time)</div><div class="ttdoc">Receives the current clock time.</div></div>

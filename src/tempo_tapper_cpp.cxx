@@ -61,7 +61,7 @@ void tempo_tapper_cpp::reset()
         tt_reset(_tt);
 }
 
-float tempo_tapper_cpp::bpm()
+BPM_t tempo_tapper_cpp::bpm()
 {
         return tt_bpm(_tt);
 }

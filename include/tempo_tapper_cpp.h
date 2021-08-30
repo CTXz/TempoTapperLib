@@ -55,5 +55,5 @@ public:
         unsigned long period_us(); ///< Wraps around tt_period_us()
         void tap();                ///< Wraps around tt_tap()
         void reset();              ///< Wraps around tt_reset()
-        float bpm();               ///< Wraps around tt_bpm()
+        BPM_t bpm();               ///< Wraps around tt_bpm()
 };
